@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İcra Kirpisi - Gizlilik Politikası</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.8; }
+        .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
+        .header { text-align: center; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 2px solid #d4a017; }
+        .header h1 { font-size: 28px; color: #fff; margin-bottom: 8px; }
+        .header p { color: #94a3b8; font-size: 14px; }
+        h2 { font-size: 20px; color: #d4a017; margin: 32px 0 12px 0; }
+        p { margin-bottom: 16px; color: #cbd5e1; font-size: 15px; }
+        ul { margin: 0 0 16px 24px; }
+        li { margin-bottom: 8px; color: #cbd5e1; font-size: 15px; }
+        .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e293b; text-align: center; color: #64748b; font-size: 13px; }
+        a { color: #60a5fa; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🦔 İcra Kirpisi - Gizlilik Politikası</h1>
+            <p>Son güncelleme: 17 Şubat 2026</p>
+        </div>
+
+        <h2>1. Genel Bakış</h2>
+        <p>İcra Kirpisi, UYAP (Ulusal Yargı Ağı Platformu) üzerinden icra dosyalarındaki varlık sorgularını otomatikleştiren bir Chrome uzantısıdır. Kullanıcılarımızın gizliliğine saygı duyuyor ve kişisel verilerin korunmasını önemsiyoruz.</p>
+
+        <h2>2. Toplanan Veriler</h2>
+        <p>İcra Kirpisi aşağıdaki verileri yalnızca kullanıcının cihazında (locally) saklar:</p>
+        <ul>
+            <li><strong>Tarama sonuçları:</strong> Dosya numarası, borçlu adı, varlık bilgileri (araç, tapu, banka, PTT)</li>
+            <li><strong>Tarama durumu:</strong> Yarım kalan taramaların devam ettirilebilmesi için ilerleme bilgisi</li>
+            <li><strong>Kullanıcı tercihleri:</strong> Otomatik tarama açık/kapalı ayarı</li>
+        </ul>
+
+        <h2>3. Verilerin Saklanması</h2>
+        <p>Tüm veriler yalnızca kullanıcının kendi tarayıcısında, Chrome'un yerel depolama alanında (chrome.storage.local) saklanır. Hiçbir veri harici bir sunucuya, üçüncü taraf hizmetine veya geliştiriciye gönderilmez.</p>
+
+        <h2>4. Üçüncü Taraf Paylaşımı</h2>
+        <p>İcra Kirpisi hiçbir kullanıcı verisini üçüncü taraflarla paylaşmaz. Uzantı yalnızca UYAP Avukat Portal (avukat.uyap.gov.tr) ile iletişim kurar ve bu iletişim kullanıcının kendi UYAP oturumu üzerinden gerçekleşir.</p>
+
+        <h2>5. UYAP Erişimi</h2>
+        <p>Uzantı, kullanıcının mevcut UYAP oturumunu kullanarak sorgu yapar. UYAP kullanıcı adı, şifresi veya oturum bilgileri uzantı tarafından saklanmaz veya işlenmez. Tüm sorgular kullanıcının tarayıcısındaki aktif oturum üzerinden gerçekleştirilir.</p>
+
+        <h2>6. İzinler</h2>
+        <p>Uzantının talep ettiği izinler ve kullanım amaçları:</p>
+        <ul>
+            <li><strong>sidePanel:</strong> Yan panel arayüzünü açmak için</li>
+            <li><strong>storage:</strong> Tarama sonuçlarını ve kullanıcı tercihlerini yerel olarak saklamak için</li>
+            <li><strong>alarms:</strong> Otomatik günlük tarama zamanlaması için</li>
+            <li><strong>notifications:</strong> Varlık bulunduğunda kullanıcıya bildirim göndermek için</li>
+            <li><strong>host_permissions (avukat.uyap.gov.tr):</strong> UYAP üzerinden varlık sorguları gerçekleştirmek için</li>
+        </ul>
+
+        <h2>7. Verilerin Silinmesi</h2>
+        <p>Kullanıcılar tarama verilerini istedikleri zaman silebilir. Uzantının kaldırılması durumunda Chrome tarafından tüm yerel veriler otomatik olarak silinir.</p>
+
+        <h2>8. Değişiklikler</h2>
+        <p>Bu gizlilik politikası gerektiğinde güncellenebilir. Önemli değişiklikler uzantı güncellemesi ile birlikte bildirilir.</p>
+
+        <h2>9. İletişim</h2>
+        <p>Gizlilik politikasıyla ilgili sorularınız için: <a href="mailto:bardakcihukuk@gmail.com">icrakirpisi@gmail.com</a></p>
+
+        <div class="footer">
+            <p>© 2026 İcra Kirpisi. Tüm hakları saklıdır.</p>
+        </div>
+    </div>
+</body>
+</html>
