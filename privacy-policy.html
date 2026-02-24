@@ -11,62 +11,107 @@
         .header { text-align: center; margin-bottom: 48px; padding-bottom: 32px; border-bottom: 2px solid #d4a017; }
         .header h1 { font-size: 28px; color: #fff; margin-bottom: 8px; }
         .header p { color: #94a3b8; font-size: 14px; }
+        .summary-box { background: rgba(212, 160, 23, 0.1); border: 1px solid rgba(212, 160, 23, 0.2); border-radius: 10px; padding: 18px 22px; margin-bottom: 36px; font-size: 15px; color: #d4a017; font-weight: 500; }
         h2 { font-size: 20px; color: #d4a017; margin: 32px 0 12px 0; }
         p { margin-bottom: 16px; color: #cbd5e1; font-size: 15px; }
+        strong { color: #f0f2f5; }
         ul { margin: 0 0 16px 24px; }
         li { margin-bottom: 8px; color: #cbd5e1; font-size: 15px; }
+        li::marker { color: #d4a017; }
+        .highlight { background: #1a2236; border: 1px solid #1e293b; border-radius: 8px; padding: 16px 20px; margin: 20px 0; font-size: 14px; }
+        a { color: #60a5fa; text-decoration: none; }
+        a:hover { text-decoration: underline; }
         .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e293b; text-align: center; color: #64748b; font-size: 13px; }
-        a { color: #60a5fa; }
+        .footer a { color: #d4a017; }
+        @media (max-width: 600px) { .header h1 { font-size: 22px; } h2 { font-size: 18px; } .container { padding: 32px 16px; } }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>🦔 İcra Kirpisi - Gizlilik Politikası</h1>
-            <p>Son güncelleme: 17 Şubat 2026</p>
+            <p>Son güncelleme: 24 Şubat 2026</p>
+        </div>
+
+        <div class="summary-box">
+            🔒 İcra Kirpisi, kullanıcı verilerini hiçbir harici sunucuya göndermez. Tüm işlemler tamamen kullanıcının kendi tarayıcısında gerçekleşir.
         </div>
 
         <h2>1. Genel Bakış</h2>
-        <p>İcra Kirpisi, UYAP (Ulusal Yargı Ağı Platformu) üzerinden icra dosyalarındaki varlık sorgularını otomatikleştiren bir Chrome uzantısıdır. Kullanıcılarımızın gizliliğine saygı duyuyor ve kişisel verilerin korunmasını önemsiyoruz.</p>
+        <p>Bu gizlilik politikası, İcra Kirpisi Chrome eklentisinin ("Eklenti") kullanıcı verilerini nasıl işlediğini açıklar. İcra Kirpisi, UYAP (Ulusal Yargı Ağı Platformu) Avukat Portalı üzerinden icra dosyalarındaki borçlu varlıklarını (araç, tapu, banka hesabı, PTT hesabı) otomatik olarak sorgulayan bir tarayıcı eklentisidir.</p>
+        <p>Kullanıcılarımızın gizliliğine saygı duyuyor ve kişisel verilerin korunmasını önemsiyoruz.</p>
 
         <h2>2. Toplanan Veriler</h2>
-        <p>İcra Kirpisi aşağıdaki verileri yalnızca kullanıcının cihazında (locally) saklar:</p>
+        <p>İcra Kirpisi, <strong>hiçbir kişisel veriyi toplamaz, harici sunuculara iletmez veya üçüncü taraflarla paylaşmaz.</strong></p>
+        <p>Eklenti yalnızca aşağıdaki verileri kullanıcının kendi tarayıcısında (chrome.storage.local) geçici olarak saklar:</p>
         <ul>
-            <li><strong>Tarama sonuçları:</strong> Dosya numarası, borçlu adı, varlık bilgileri (araç, tapu, banka, PTT)</li>
-            <li><strong>Tarama durumu:</strong> Yarım kalan taramaların devam ettirilebilmesi için ilerleme bilgisi</li>
-            <li><strong>Kullanıcı tercihleri:</strong> Otomatik tarama açık/kapalı ayarı</li>
+            <li><strong>Tarama sonuçları:</strong> Dosya numarası, borçlu adı, varlık bilgileri (araç, tapu, banka, PTT) — yalnızca Excel raporu oluşturmak amacıyla.</li>
+            <li><strong>Tarama durumu:</strong> Yarım kalan taramaların devam ettirilebilmesi için dosya listesi ve ilerleme bilgisi.</li>
+            <li><strong>Kullanıcı tercihleri:</strong> Otomatik günlük tarama açık/kapalı ayarı.</li>
         </ul>
+
+        <div class="highlight">
+            <strong>Önemli:</strong> Bu veriler yalnızca kullanıcının kendi bilgisayarında saklanır. Hiçbir veri dış sunuculara, üçüncü taraflara veya geliştirici tarafına aktarılmaz.
+        </div>
 
         <h2>3. Verilerin Saklanması</h2>
         <p>Tüm veriler yalnızca kullanıcının kendi tarayıcısında, Chrome'un yerel depolama alanında (chrome.storage.local) saklanır. Hiçbir veri harici bir sunucuya, üçüncü taraf hizmetine veya geliştiriciye gönderilmez.</p>
 
         <h2>4. Üçüncü Taraf Paylaşımı</h2>
-        <p>İcra Kirpisi hiçbir kullanıcı verisini üçüncü taraflarla paylaşmaz. Uzantı yalnızca UYAP Avukat Portal (avukat.uyap.gov.tr) ile iletişim kurar ve bu iletişim kullanıcının kendi UYAP oturumu üzerinden gerçekleşir.</p>
+        <p>İcra Kirpisi:</p>
+        <ul>
+            <li>Hiçbir kullanıcı verisini üçüncü taraflarla <strong>paylaşmaz</strong>.</li>
+            <li>Hiçbir kullanıcı verisini <strong>satmaz</strong>.</li>
+            <li>Hiçbir analitik veya izleme aracı <strong>kullanmaz</strong> (Google Analytics, Facebook Pixel vb.).</li>
+            <li>Hiçbir çerez (cookie) <strong>kullanmaz</strong>.</li>
+        </ul>
+        <p>Eklenti yalnızca UYAP Avukat Portalı (avukat.uyap.gov.tr) ile iletişim kurar ve bu iletişim kullanıcının kendi UYAP oturumu üzerinden gerçekleşir.</p>
 
         <h2>5. UYAP Erişimi</h2>
-        <p>Uzantı, kullanıcının mevcut UYAP oturumunu kullanarak sorgu yapar. UYAP kullanıcı adı, şifresi veya oturum bilgileri uzantı tarafından saklanmaz veya işlenmez. Tüm sorgular kullanıcının tarayıcısındaki aktif oturum üzerinden gerçekleştirilir.</p>
-
-        <h2>6. İzinler</h2>
-        <p>Uzantının talep ettiği izinler ve kullanım amaçları:</p>
+        <p>Eklenti, kullanıcının mevcut UYAP oturumunu kullanarak sorgu yapar. Bu sorgular:</p>
         <ul>
-            <li><strong>sidePanel:</strong> Yan panel arayüzünü açmak için</li>
-            <li><strong>storage:</strong> Tarama sonuçlarını ve kullanıcı tercihlerini yerel olarak saklamak için</li>
-            <li><strong>alarms:</strong> Otomatik günlük tarama zamanlaması için</li>
-            <li><strong>notifications:</strong> Varlık bulunduğunda kullanıcıya bildirim göndermek için</li>
-            <li><strong>host_permissions (avukat.uyap.gov.tr):</strong> UYAP üzerinden varlık sorguları gerçekleştirmek için</li>
+            <li>Kullanıcının zaten giriş yapmış olduğu UYAP oturumu üzerinden gerçekleştirilir.</li>
+            <li>Eklenti, UYAP kullanıcı adı veya şifresini <strong>hiçbir zaman talep etmez, saklamaz veya işlemez</strong>.</li>
+            <li>Sorgular doğrudan kullanıcının tarayıcısından UYAP sunucularına gönderilir; herhangi bir aracı sunucu kullanılmaz.</li>
         </ul>
 
-        <h2>7. Verilerin Silinmesi</h2>
-        <p>Kullanıcılar tarama verilerini istedikleri zaman silebilir. Uzantının kaldırılması durumunda Chrome tarafından tüm yerel veriler otomatik olarak silinir.</p>
+        <h2>6. Veri Güvenliği</h2>
+        <p>Tüm veriler kullanıcının kendi cihazında Chrome Local Storage alanında saklanır. Veriler yalnızca kullanıcının kendi bilgisayarında erişilebilir durumdadır. Eklenti, UYAP sorguları dışında hiçbir ağ bağlantısı üzerinden veri aktarımı yapmaz.</p>
 
-        <h2>8. Değişiklikler</h2>
-        <p>Bu gizlilik politikası gerektiğinde güncellenebilir. Önemli değişiklikler uzantı güncellemesi ile birlikte bildirilir.</p>
+        <h2>7. İzinler</h2>
+        <p>Eklentinin talep ettiği izinler ve kullanım amaçları:</p>
+        <ul>
+            <li><strong>sidePanel:</strong> Yan panel arayüzünü açmak için.</li>
+            <li><strong>storage:</strong> Tarama sonuçlarını ve kullanıcı tercihlerini yerel olarak saklamak için.</li>
+            <li><strong>alarms:</strong> Otomatik günlük tarama zamanlaması için.</li>
+            <li><strong>notifications:</strong> Varlık bulunduğunda kullanıcıya bildirim göndermek için.</li>
+            <li><strong>host_permissions (avukat.uyap.gov.tr):</strong> UYAP üzerinden varlık sorguları gerçekleştirmek için.</li>
+        </ul>
+        <p>Bu izinler yalnızca eklentinin temel işlevselliği için kullanılır.</p>
 
-        <h2>9. İletişim</h2>
-        <p>Gizlilik politikasıyla ilgili sorularınız için: <a href="mailto:bardakcihukuk@gmail.com">bardakcihukuk@gmail.com</a></p>
+        <h2>8. Kullanıcı Hakları ve Verilerin Silinmesi</h2>
+        <p>Kullanıcılar istedikleri zaman:</p>
+        <ul>
+            <li>Eklentiyi Chrome'dan kaldırarak tüm yerel verileri silebilir. Kaldırma durumunda Chrome tarafından tüm veriler otomatik olarak silinir.</li>
+            <li>Chrome ayarlarından eklentinin sakladığı verileri temizleyebilir.</li>
+            <li>Tarama sonuçlarını Excel olarak indirdikten sonra yerel verileri sıfırlayabilir.</li>
+        </ul>
 
+        <h2>9. Çocukların Gizliliği</h2>
+        <p>İcra Kirpisi, 18 yaşın altındaki bireylere yönelik değildir. Eklenti yalnızca UYAP Avukat Portalı'na erişimi olan lisanslı avukatlar tarafından kullanılmak üzere tasarlanmıştır.</p>
+
+        <h2>10. Değişiklikler</h2>
+        <p>Bu gizlilik politikası gerektiğinde güncellenebilir. Önemli değişiklikler uzantı güncellemesi ile birlikte bildirilir. Değişiklikler bu sayfada yayınlanacak ve "Son güncelleme" tarihi revize edilecektir.</p>
+
+        <h2>11. İletişim</h2>
+        <p>Gizlilik politikasıyla ilgili sorularınız için:</p>
+        <div class="highlight">
+            <strong>E-posta:</strong> <a href="mailto:bardakcihukuk@gmail.com">bardakcihukuk@gmail.com</a><br>
+            <strong>Web:</strong> <a href="https://icrakirpisi.com">icrakirpisi.com</a>
+        </div>
         <div class="footer">
-            <p>© 2026 İcra Kirpisi. Tüm hakları saklıdır.</p>
+            <p>© 2026 İcra Kirpisi —Tüm hakları saklıdır.</p>
+            <p><a href="https://icrakirpisi.com">icrakirpisi.com</a></p>
         </div>
     </div>
 </body>
