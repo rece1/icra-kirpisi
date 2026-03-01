@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İcra Kirpisi Blog — İcra Avukatları İçin Dijital Rehber</title>
+    <meta name="description" content="İcra avukatları için UYAP ipuçları, borçlu varlık sorgulama rehberleri ve zaman kazandıran dijital yöntemler.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ─── EXACT SAME VARIABLES & BASE AS INDEX.HTML ─── */
+        :root {
+            --bg-deep: #080c18;
+            --bg-card: #0e1525;
+            --bg-card-hover: #131d33;
+            --gold: #d4a017;
+            --gold-light: #f0c946;
+            --blue: #2563eb;
+            --blue-light: #60a5fa;
+            --text: #e2e8f0;
+            --text-dim: #8892a8;
+            --text-soft: #b0b8c8;
+            --border: #1a2540;
+            --border-light: #151e35;
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ─── GRAIN OVERLAY (same as index) ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ─── NAV (matching index hero style) ─── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8,12,24,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--bg-deep);
+            font-weight: 700;
+        }
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fff 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--gold);
+        }
+        /* ─── CTA button matches index .btn-primary ─── */
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue) !important;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600 !important;
+            transition: all 0.3s !important;
+            border: none;
+        }
+        .nav-cta:hover {
+            background: #3b82f6 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(37,99,235,0.3);
+        }
+
+        /* ─── HERO (matching index hero radial glow + typography) ─── */
+        .blog-hero {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+            text-align: center;
+            position: relative;
+        }
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212,160,23,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .blog-hero .label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .blog-hero .label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+        }
+        .blog-hero h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: -2px;
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #fff 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .blog-hero p {
+            margin-top: 16px;
+            color: var(--text-dim);
+            font-size: clamp(16px, 2.5vw, 22px);
+            font-weight: 300;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* ─── BLOG GRID (matching index feature-card style) ─── */
+        .blog-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .blog-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2;
+        }
+        .blog-card:hover {
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+            border-color: rgba(212,160,23,0.2);
+        }
+        .blog-card:hover::before {
+            opacity: 1;
+        }
+        .card-visual {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-visual-1 {
+            background: linear-gradient(135deg, #0e1525 0%, rgba(212,160,23,0.3) 50%, rgba(37,99,235,0.3) 100%);
+        }
+        .card-visual-2 {
+            background: linear-gradient(135deg, rgba(37,99,235,0.3) 0%, #0e1525 50%, rgba(212,160,23,0.2) 100%);
+        }
+        .card-visual-3 {
+            background: linear-gradient(135deg, rgba(212,160,23,0.4) 0%, rgba(240,201,70,0.2) 50%, #0e1525 100%);
+        }
+        .card-visual-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.2;
+        }
+        .card-visual-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20z' fill='white' fill-opacity='1'/%3E%3C/svg%3E");
+            background-size: 40px 40px;
+        }
+        .card-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(212,160,23,0.15);
+            backdrop-filter: blur(8px);
+            color: var(--gold-light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border: 1px solid rgba(212,160,23,0.2);
+        }
+        .card-body {
+            padding: 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-body h3 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .card-body p {
+            color: var(--text-dim);
+            font-size: 14px;
+            line-height: 1.6;
+            flex: 1;
+            font-weight: 300;
+        }
+        .card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+        .card-meta .read-time {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ─── ARTICLE VIEW ─── */
+        .article-view { display: none; }
+        .article-view.active { display: block; }
+        .blog-listing.hidden { display: none; }
+
+        .article-header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 40px;
+            position: relative;
+        }
+        .article-header::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212,160,23,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .article-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .article-back:hover { color: var(--gold); }
+        .article-back svg { width: 16px; height: 16px; }
+        .article-tag {
+            display: inline-block;
+            background: rgba(212,160,23,0.1);
+            color: var(--gold);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(212,160,23,0.15);
+        }
+        .article-header h1 {
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .article-header .subtitle {
+            margin-top: 16px;
+            font-size: 16px;
+            color: var(--text-dim);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        .article-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+        .article-info .author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--bg-deep);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        /* ─── ARTICLE CONTENT ─── */
+        .article-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 16px 24px 100px;
+        }
+        .article-content h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800;
+            margin: 60px 0 16px;
+            letter-spacing: -1px;
+            color: var(--text);
+        }
+        .article-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 2rem 0 0.75rem;
+            color: var(--text);
+        }
+        .article-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-dim);
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        .article-content strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+        .article-content ol, .article-content ul {
+            margin: 0 0 1.25rem 1.5rem;
+            color: var(--text-dim);
+        }
+        .article-content li {
+            margin-bottom: 0.6rem;
+            padding-left: 0.25rem;
+            font-weight: 300;
+            font-size: 16px;
+        }
+        .article-content li::marker {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* ─── CALLOUT (matching index feature-card style) ─── */
+        .callout {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 1.75rem 0;
+            font-size: 14px;
+            line-height: 1.6;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .callout::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .callout:hover { background: var(--bg-card-hover); border-color: rgba(212,160,23,0.2); }
+        .callout:hover::before { opacity: 1; }
+        .callout-tip { border-left: 4px solid var(--blue); }
+        .callout-tip .callout-title { color: var(--blue-light); }
+        .callout-warn { border-left: 4px solid var(--gold); }
+        .callout-warn .callout-title { color: var(--gold-light); }
+        .callout-cta { border-left: 4px solid var(--gold); }
+        .callout-cta .callout-title { color: var(--gold); }
+        .callout-title {
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.35rem;
+        }
+        .callout a { color: var(--gold); font-weight: 600; text-decoration: none; }
+        .callout a:hover { text-decoration: underline; }
+
+        /* ─── STEP FLOW (matching index .steps style exactly) ─── */
+        .step-flow {
+            max-width: 700px;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .step-flow::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+        }
+        .step {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 48px;
+            align-items: flex-start;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards;
+        }
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+        .step:nth-child(4) { animation-delay: 0.4s; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+        .step-body h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+        .step-body p {
+            font-size: 14px;
+            color: var(--text-dim);
+            margin-bottom: 0;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* ─── PATH FLOW (code block) ─── */
+        .path-flow {
+            background: var(--bg-card);
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 1.5rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 2;
+            overflow-x: auto;
+        }
+        .path-flow .arrow { color: var(--gold); margin: 0 0.3rem; }
+        .path-flow .highlight { color: var(--gold-light); font-weight: 600; }
+
+        /* ─── COMPARISON TABLE (matching index card aesthetic) ─── */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1.5rem 0;
+            font-size: 14px;
+        }
+        .comparison-table th {
+            background: var(--bg-card);
+            color: var(--gold);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 1px solid var(--border);
+        }
+        .comparison-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-dim);
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+
+        /* ─── CTA BANNER (matching index .cta-section) ─── */
+        .cta-banner {
+            max-width: 720px;
+            margin: 40px auto 100px;
+            padding: 0 24px;
+        }
+        .cta-banner-inner {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner-inner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(212,160,23,0.08) 0%, transparent 60%),
+                        radial-gradient(circle at 80% 50%, rgba(37,99,235,0.08) 0%, transparent 60%);
+        }
+        .cta-banner-inner h3 {
+            color: var(--text);
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+            margin-bottom: 16px;
+        }
+        .cta-banner-inner p {
+            color: var(--text-dim);
+            font-size: 16px;
+            font-weight: 300;
+            position: relative;
+            margin-bottom: 32px;
+        }
+        /* ─── CTA button matches index .btn-primary exactly ─── */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            position: relative;
+            transition: all 0.3s;
+            border: none;
+        }
+        .cta-btn:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(37,99,235,0.3);
+        }
+
+        /* ─── FOOTER (matching index footer exactly) ─── */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 13px;
+        }
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        footer a:hover { color: var(--gold-light); }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 640px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 1rem; }
+            .nav-links a:not(.nav-cta) { display: none; }
+            .blog-hero { padding: 60px 24px 40px; }
+            .article-header, .article-content { padding-left: 24px; padding-right: 24px; }
+            .cta-banner { padding: 0 24px; }
+            .cta-banner-inner { padding: 40px 24px; }
+        }
+
+        /* ─── ANIMATIONS (same as index) ─── */
+        .blog-card { opacity: 0; animation: fadeInUp 0.6s forwards; }
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">
+            <div class="logo-icon">İK</div>
+            <span class="logo-text">İcra Kirpisi</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Anasayfa</a>
+            <a href="#" class="active" onclick="showListing(); return false;">Blog</a>
+            <a href="https://chromewebstore.google.com/detail/hmlfjillkeailddacgclnbpjllhodnip?utm_source=item-share-cb" class="nav-cta">Chrome'a Ekle</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ═══════ BLOG LISTING ═══════ -->
+<div class="blog-listing" id="blogListing">
+    <div class="blog-hero">
+        <div class="label">Blog</div>
+        <h1>İcra Avukatları İçin Dijital Rehber</h1>
+        <p>UYAP ipuçları, varlık sorgulama rehberleri ve icra pratiğinde zaman kazandıran yöntemler.</p>
+    </div>
+
+    <div class="blog-grid">
+        <!-- Card 1 -->
+        <a class="blog-card" onclick="showArticle('article1')">
+            <div class="card-visual card-visual-1">
+                <div class="card-visual-pattern"></div>
+                <div class="card-tag">UYAP Rehber</div>
+                <div class="card-visual-icon">🔍</div>
+            </div>
+            <div class="card-body">
+                <h3>UYAP'ta Borçlu Varlık Sorgusu Nasıl Yapılır? (2026 Güncel)</h3>
+                <p>Avukat Portal üzerinden EGM, TAKBİS ve banka sorgularının adım adım rehberi. Güncel arayüz ekran görüntüleriyle.</p>
+                <div class="card-meta">
+                    <span>1 Mart 2026</span>
+                    <span class="read-time">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        8 dk okuma
+                    </span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a class="blog-card" onclick="showArticle('article2')">
+            <div class="card-visual card-visual-2">
+                <div class="card-visual-pattern"></div>
+                <div class="card-tag">Teknik Rehber</div>
+                <div class="card-visual-icon">📋</div>
+            </div>
+            <div class="card-body">
+                <h3>İcra Dosyasında EGM, TAKBİS, Banka Sorgulama Rehberi</h3>
+                <p>Her sorgu türünün ne işe yaradığı, hangi bilgileri getirdiği ve pratik ipuçları. Yeni avukatlar için kapsamlı kaynak.</p>
+                <div class="card-meta">
+                    <span>1 Mart 2026</span>
+                    <span class="read-time">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        10 dk okuma
+                    </span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a class="blog-card" onclick="showArticle('article3')">
+            <div class="card-visual card-visual-3">
+                <div class="card-visual-pattern"></div>
+                <div class="card-tag">Verimlilik</div>
+                <div class="card-visual-icon">⚡</div>
+            </div>
+            <div class="card-body">
+                <h3>İcra Avukatları İçin Zaman Kazandıran 5 Yöntem</h3>
+                <p>Dosya yönetiminden sorgu otomasyonuna, günlük pratikte saatler kazandıran dijital ve analog teknikler.</p>
+                <div class="card-meta">
+                    <span>1 Mart 2026</span>
+                    <span class="read-time">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        7 dk okuma
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- ═══════ ARTICLE 1 ═══════ -->
+<div class="article-view" id="article1">
+    <div class="article-header">
+        <a href="#" class="article-back" onclick="showListing(); return false;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Tüm Yazılar
+        </a>
+        <div class="article-tag">UYAP Rehber</div>
+        <h1>UYAP'ta Borçlu Varlık Sorgusu Nasıl Yapılır? (2026 Güncel)</h1>
+        <p class="subtitle">Avukat Portal üzerinden borçlu varlık taramasının adım adım rehberi. EGM araç sorgusu, TAKBİS tapu sorgusu ve banka hesap sorgusu nasıl yapılır?</p>
+        <div class="article-info">
+            <div class="author">
+                <div class="author-avatar">İK</div>
+                <span>İcra Kirpisi</span>
+            </div>
+            <span>1 Mart 2026</span>
+            <span>8 dk okuma</span>
+        </div>
+    </div>
+
+    <div class="article-content">
+        <p>İcra takibinde borçlunun mal varlığını tespit etmek, alacağın tahsili için en kritik adımdır. UYAP Avukat Portal, avukatlara borçlunun araç, taşınmaz ve banka hesaplarını sorgulama imkânı sunar — ancak bu süreç, özellikle çok dosyalı bürolarda ciddi bir zaman yükü oluşturur.</p>
+
+        <p>Bu rehberde, 2026 yılı itibarıyla güncel UYAP arayüzü üzerinden borçlu varlık sorgulamanın tüm adımlarını anlatıyoruz.</p>
+
+        <h2>Sorguya Başlamadan Önce</h2>
+
+        <p>UYAP Avukat Portal'a giriş için <strong>e-imza</strong> veya <strong>mobil imza</strong> gereklidir. Giriş yaptıktan sonra sorgu yapabilmek için öncelikle ilgili icra dosyasına erişmeniz gerekir. Tüm sorgular dosya bazında ve borçlu bazında yapılır — yani önce dosyayı, sonra borçluyu seçmelisiniz.</p>
+
+        <div class="callout callout-warn">
+            <div class="callout-title">⚠ Önemli Not</div>
+            Sorgular yalnızca avukatın yetki alanı dahilindeki dosyalar için yapılabilir. Yetkiniz olmayan dosyalarda sorgu yapmanız hukuki sorumluluk doğurabilir.
+        </div>
+
+        <h2>Adım Adım Sorgu Akışı</h2>
+
+        
+        <p>Borçluyu seçtikten sonra karşınıza sorgu seçenekleri çıkar. Her bir sorgu türü farklı bir kurum üzerinden bilgi getirir:</p>
+
+        <h3>1. EGM-TNB (Araç) Sorgusu</h3>
+        <p>Emniyet Genel Müdürlüğü ve Türkiye Noterler Birliği kayıtlarından borçlunun üzerine kayıtlı tüm motorlu araçları listeler. Plaka numarası, marka, model, model yılı ve tescil bilgileri görüntülenir. Araç üzerinde haciz veya yakalama kaydı olup olmadığı da bu sorgudan anlaşılabilir.</p>
+
+        <h3>2. TAKBİS (Tapu) Sorgusu</h3>
+        <p>Tapu ve Kadastro Bilgi Sistemi üzerinden borçlunun adına kayıtlı taşınmazları getirir. İl, ilçe, mahalle, ada/parsel bilgileri ile taşınmaz türü (arsa, bina, tarla vb.) listelenir. Taşınmaz üzerindeki mevcut haciz, ipotek gibi takyidat bilgileri de görüntülenebilir.</p>
+
+        <h3>3. Banka Hesap Sorgusu</h3>
+        <p>Borçlunun hangi bankalarda hesabı olduğunu gösterir. Hesap bakiyesi doğrudan görüntülenmez, ancak hesabın varlığı ve türü (vadesiz, vadeli, yatırım) bilgisi döner. Bu bilgiyle hedefli haciz ihbarnamesi gönderebilirsiniz.</p>
+
+        <h2>Pratik Sorunlar ve Çözümler</h2>
+
+        <p>Tek bir borçlu için bu süreç 2-3 dakika alır. Ancak günde 20-30 dosya sorgulaması yapan bir icra avukatı için bu, <strong>günde 1 saat veya daha fazla</strong> demektir — üstelik tamamen tekrarlayan, mekanik bir iş.</p>
+
+        <p>Dosya sayısı arttıkça sorun katlanarak büyür. Her dosya için aynı tıklama sırasını tekrarlamak, hem zaman kaybı hem de dikkat hatası riski yaratır. Yanlış borçlu seçimi veya atlanan sorgu, alacağın tahsilini geciktirebilir.</p>
+
+        <div class="callout callout-tip">
+            <div class="callout-title">💡 İpucu</div>
+            Sorguları gün içinde belirli bir zaman dilimine toplamak (örneğin sabah ilk iş) hem daha verimli hem de daha sistematik bir çalışma sağlar. UYAP'ın yoğun saatlerde (öğlen 12-14 arası) yavaşladığını da göz önünde bulundurun.
+        </div>
+
+        <h2>Sorguyu Otomatikleştirmek Mümkün mü?</h2>
+
+        <p>Evet. <strong>İcra Kirpisi</strong>, tam olarak bu sorunu çözmek için geliştirilmiş bir Chrome eklentisidir. UYAP Avukat Portal oturumunuz üzerinde çalışır ve yukarıdaki tüm adımları sizin yerinize otomatik olarak gerçekleştirir.</p>
+
+        <p>Eklenti, e-imzanızı veya şifrenizi saklamaz. Zaten açık olan UYAP oturumunuzdaki sorgu akışını hızlandırır — tıpkı bir kâtibin dosyaları sizin için taraması gibi, ancak çok daha hızlı.</p>
+
+        <div class="callout callout-cta">
+            <div class="callout-title">🦔 İcra Kirpisi'ni Dene</div>
+            EGM, TAKBİS ve banka sorgularını tek tıkla tamamla. Tamamen ücretsiz.
+            <br><a href="https://chromewebstore.google.com/detail/hmlfjillkeailddacgclnbpjllhodnip?utm_source=item-share-cb">Chrome Web Store'dan İndir →</a>
+        </div>
+
+        <h2>Sık Sorulan Sorular</h2>
+
+        <h3>Sorgu sonuçları ne kadar güncel?</h3>
+        <p>UYAP sorguları ilgili kurumun (EGM, TAKBİS, bankalar) anlık veritabanından çekilir. Sonuçlar sorgu anının verisini yansıtır, ancak kurumlar arası veri senkronizasyonunda birkaç günlük gecikme olabileceğini unutmayın.</p>
+
+        <h3>Tüm bankalar sorguya dahil mi?</h3>
+        <p>UYAP banka sorgusu, sisteme entegre olan bankalardan veri çeker. Türkiye'deki büyük bankaların tamamı dahildir, ancak bazı küçük finansal kuruluşlar veya yeni nesil fintech uygulamaları henüz kapsam dışında olabilir.</p>
+
+        <h3>Sorgu sayısında sınır var mı?</h3>
+        <p>UYAP'ın resmi bir günlük sorgu limiti yoktur, ancak çok sayıda sorgu kısa sürede yapıldığında sistem yavaşlayabilir veya oturum zaman aşımına uğrayabilir. Makul aralıklarla sorgu yapmak en güvenli yaklaşımdır.</p>
+    </div>
+
+    <div class="cta-banner">
+        <div class="cta-banner-inner">
+            <h3>Sorguları Otomatikleştirmeye Hazır mısın?</h3>
+            <p>İcra Kirpisi ile UYAP varlık sorgularını saniyeler içinde tamamla.</p>
+            <a href="https://chromewebstore.google.com/detail/hmlfjillkeailddacgclnbpjllhodnip?utm_source=item-share-cb" class="cta-btn">Chrome'a Ücretsiz Ekle</a>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════ ARTICLE 2 ═══════ -->
+<div class="article-view" id="article2">
+    <div class="article-header">
+        <a href="#" class="article-back" onclick="showListing(); return false;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Tüm Yazılar
+        </a>
+        <div class="article-tag">Teknik Rehber</div>
+        <h1>İcra Dosyasında EGM, TAKBİS, Banka Sorgulama Rehberi</h1>
+        <p class="subtitle">Her sorgu türü ne bilgi getirir, ne zaman kullanılmalı ve sonuçlar nasıl değerlendirilmeli? İcra avukatları için kapsamlı teknik kaynak.</p>
+        <div class="article-info">
+            <div class="author">
+                <div class="author-avatar">İK</div>
+                <span>İcra Kirpisi</span>
+            </div>
+            <span>1 Mart 2026</span>
+            <span>10 dk okuma</span>
+        </div>
+    </div>
+
+    <div class="article-content">
+        <p>İcra takibinin amacı alacağın tahsilidir ve tahsil için önce borçlunun mal varlığını bilmeniz gerekir. UYAP Avukat Portal, avukatlara çeşitli kamu kurumlarının veritabanlarını sorgulama yetkisi tanır. Ancak her sorgu farklı bilgi getirir, farklı stratejik amaçlara hizmet eder ve farklı dikkat noktaları taşır.</p>
+
+        <p>Bu rehberde üç temel sorgu türünü — EGM, TAKBİS ve banka — derinlemesine inceliyoruz.</p>
+
+        <h2>EGM (Araç Tescil) Sorgusu</h2>
+
+        <h3>Ne Getirir?</h3>
+        <p>Emniyet Genel Müdürlüğü'nün tescil kayıtlarından borçlunun üzerine kayıtlı motorlu taşıtları listeler. Sorgu sonucunda plaka numarası, araç markası ve modeli, model yılı, motor ve şasi numarası, tescil tarihi ve ruhsat bilgileri görüntülenir.</p>
+
+        <h3>Stratejik Kullanım</h3>
+        <p>Araç sorgusu genellikle ilk yapılan sorgudur, çünkü araçlar en kolay haciz konulabilen ve nakde çevrilebilen varlıklardandır. Yeni model ve değerli araçlar, alacağın hızlı tahsili için öncelikli hedeftir.</p>
+
+        <p>Araç yaşına ve modeline dikkat edin. 20 yaşını aşmış, ekonomik değeri düşük araçlara haciz koymak, yediemin ücreti gibi ek masraflar düşünüldüğünde her zaman mantıklı olmayabilir. Aracın piyasa değerini kabaca hesaplayıp alacak miktarıyla karşılaştırmak iyi bir pratiktir.</p>
+
+        <div class="callout callout-tip">
+            <div class="callout-title">💡 Pratik İpucu</div>
+            Araç üzerinde mevcut haciz sayısı yüksekse (3-4+), satış aşamasında sıra sizin alacağınıza gelmeyebilir. Bu durumda diğer varlık türlerine yönelmek daha stratejik olabilir.
+        </div>
+
+        <h2>TAKBİS (Tapu) Sorgusu</h2>
+
+        <h3>Ne Getirir?</h3>
+        <p>Tapu ve Kadastro Bilgi Sistemi üzerinden borçlunun adına kayıtlı taşınmazları listeler. İl, ilçe, mahalle, ada ve parsel numarası, taşınmaz türü (arsa, bağımsız bölüm, tarla, arazi vb.), yüzölçümü ve hisse oranı bilgileri gelir.</p>
+
+        <h3>Stratejik Kullanım</h3>
+        <p>Taşınmaz, genellikle en yüksek değerli varlık türüdür. Ancak taşınmaz satış süreci araç satışına göre çok daha uzundur — kıymet takdiri, satış ilanı, ihale süreçleri aylar alabilir. Bu nedenle taşınmaz haczi, uzun vadeli tahsil stratejisi için uygundur.</p>
+
+        <p>TAKBİS sorgusu yaparken dikkat edilmesi gereken noktalar şöyle sıralanabilir: hisseli taşınmazlarda borçlunun pay oranı düşükse haciz ve satış süreci karmaşıklaşır; üzerinde ipotek olan taşınmazlarda ipotek alacaklısının önceliği vardır; ve aile konutu şerhi bulunan taşınmazlarda ek hukuki kısıtlamalar söz konusu olabilir.</p>
+
+        <h3>Takyidat Bilgileri</h3>
+        <p>TAKBİS sorgusu, taşınmaz üzerindeki mevcut şerh, beyan ve kısıtlamaları da gösterir. Haciz şerhi, ipotek, intifa hakkı, kat irtifakı gibi bilgiler, taşınmazın gerçek tahsil potansiyelini değerlendirmek için kritiktir. Üzerinde birden fazla haciz bulunan bir taşınmazda, haciz sıranız tahsilat şansınızı doğrudan etkiler.</p>
+
+        <h2>Banka Hesap Sorgusu</h2>
+
+        <h3>Ne Getirir?</h3>
+        <p>Borçlunun hangi bankalarda hesabı olduğunu gösterir. Önemli bir ayrım: bu sorgu hesap bakiyesini doğrudan göstermez. Ancak hesabın varlığı, türü (vadesiz mevduat, vadeli mevduat, yatırım hesabı) ve hesabın açık/kapalı durumu bilgisi döner.</p>
+
+        <h3>Stratejik Kullanım</h3>
+        <p>Banka sorgusu, en hızlı tahsil yöntemi olan hesap haczi için temeldir. Borçlunun hesabı olan bankalara birinci veya ikinci haciz ihbarnamesi göndermek, nakde en kısa sürede ulaşmanın yoludur.</p>
+
+        <p>Birden fazla bankada hesabı olan borçlularda, tüm bankalara aynı anda haciz ihbarnamesi göndermek en etkili yaklaşımdır. Borçlu parayı bankalar arasında taşıyabilir, bu nedenle aynı anda hareket etmek önemlidir.</p>
+
+        <div class="callout callout-warn">
+            <div class="callout-title">⚠ Dikkat</div>
+            Bazı banka hesapları haczedilemez niteliktedir. SGK maaş hesapları (kısmen korumalı), nafaka hesapları ve belirli sosyal yardım hesapları kısıtlama kapsamındadır. Haczedilmezlik itirazlarına hazırlıklı olun.
+        </div>
+
+        <h2>Sorgu Türleri Karşılaştırması</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Özellik</th>
+                    <th>EGM (Araç)</th>
+                    <th>TAKBİS (Tapu)</th>
+                    <th>Banka</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Bilgi türü</strong></td>
+                    <td>Araç tescil bilgileri</td>
+                    <td>Taşınmaz kayıtları</td>
+                    <td>Hesap varlığı ve türü</td>
+                </tr>
+                <tr>
+                    <td><strong>Tahsil hızı</strong></td>
+                    <td>Orta (hafta–ay)</td>
+                    <td>Yavaş (aylar)</td>
+                    <td>Hızlı (gün–hafta)</td>
+                </tr>
+                <tr>
+                    <td><strong>Varlık değeri</strong></td>
+                    <td>Orta</td>
+                    <td>Yüksek</td>
+                    <td>Değişken</td>
+                </tr>
+                <tr>
+                    <td><strong>Haciz kolaylığı</strong></td>
+                    <td>Kolay</td>
+                    <td>Kolay (satış zor)</td>
+                    <td>En kolay</td>
+                </tr>
+                <tr>
+                    <td><strong>Öncelikli kullanım</strong></td>
+                    <td>Orta vadeli tahsil</td>
+                    <td>Uzun vadeli güvence</td>
+                    <td>Acil tahsil</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Etkili Sorgu Stratejisi</h2>
+
+        <p>Deneyimli icra avukatları genellikle şu sırayı takip eder:</p>
+
+        <div class="step-flow">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                    <h4>Önce Banka Sorgusu</h4>
+                    <p>En hızlı tahsil imkânı. Hesap varsa hemen haciz ihbarnamesi gönder.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                    <h4>Sonra EGM Sorgusu</h4>
+                    <p>Değerli araç varsa yakalama ve haciz şerhi koy. Banka tahsilini destekler.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-body">
+                    <h4>Son Olarak TAKBİS</h4>
+                    <p>Uzun vadeli güvence. Taşınmaz haczi alacağın teminata bağlanması için önemli.</p>
+                </div>
+            </div>
+        </div>
+
+        <p>Ancak bu sıralama her dosya için geçerli olmayabilir. Büyük alacaklarda üçünü aynı anda yapmak, küçük alacaklarda sadece banka sorgusuna odaklanmak daha verimli olabilir.</p>
+
+        <h2>Toplu Sorgu Sorunu</h2>
+
+        <p>Tek bir dosya için bu sorgular birkaç dakika alır. Ancak 10, 20, 50 dosya için aynı işlemi tekrarlamak, günün büyük bölümünü mekanik tıklamalarla geçirmek anlamına gelir. UYAP'ın arayüzü her bir sorgu türü için ayrı ayrı işlem yapmayı gerektirir — toplu sorgulama için yerleşik bir özellik yoktur.</p>
+
+        <div class="callout callout-cta">
+            <div class="callout-title">🦔 İcra Kirpisi Bu Sorunu Çözer</div>
+            İcra Kirpisi, EGM, TAKBİS ve banka sorgularını UYAP oturumunuz üzerinden otomatik olarak çalıştırır. E-imzanızı veya şifrenizi saklamaz, zaten yetkili olduğunuz sorguları sizin yerinize hızlandırır.
+            <br><a href="https://chromewebstore.google.com/detail/hmlfjillkeailddacgclnbpjllhodnip?utm_source=item-share-cb">Ücretsiz Dene →</a>
+        </div>
+    </div>
+
+    <div class="cta-banner">
+        <div class="cta-banner-inner">
+            <h3>Her Dosya İçin Tek Tek Sorgu mu Yapıyorsun?</h3>
+            <p>İcra Kirpisi ile tüm sorgularını otomatikleştir, dosyalarına odaklan.</p>
+            <a href="https://chromewebstore.google.com/detail/hmlfjillkeailddacgclnbpjllhodnip?utm_source=item-share-cb" class="cta-btn">Chrome'a Ücretsiz Ekle</a>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════ ARTICLE 3 ═══════ -->
+<div class="article-view" id="article3">
+    <div class="article-header">
+        <a href="#" class="article-back" onclick="showListing(); return false;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Tüm Yazılar
+        </a>
+        <div class="article-tag">Verimlilik</div>
+        <h1>İcra Avukatları İçin Zaman Kazandıran 5 Yöntem</h1>
+        <p class="subtitle">Günlük icra pratiğinde tekrarlayan işlemleri azaltmanın, dosya yönetimini düzenlemenin ve dijital araçlardan en iyi şekilde faydalanmanın yolları.</p>
+        <div class="article-info">
+            <div class="author">
+                <div class="author-avatar">İK</div>
+                <span>İcra Kirpisi</span>
+            </div>
+            <span>25 Şubat 2026</span>
+            <span>7 dk okuma</span>
+        </div>
+    </div>
+
+    <div class="article-content">
+        <p>İcra avukatlığı, hukuk mesleğinin en yoğun tempolu alanlarından biridir. Düzinelerce dosya, tekrarlayan UYAP işlemleri, icra dairesi ziyaretleri, müvekkil görüşmeleri ve süre takipleri… Günün büyük kısmı "asıl hukuki iş" yerine operasyonel süreçlerle geçer.</p>
+
+        <p>Aşağıdaki 5 yöntem, icra pratiğinde somut zaman tasarrufu sağlayan, hemen uygulanabilir tekniklerdir.</p>
+
+        <h2>1. Sorgu Rutininizi Sabaha Sabitleyin</h2>
+
+        <p>Birçok avukat gün içinde farklı zamanlarda UYAP'a girip sorgu yapar — bir dosya gelir, hemen bakar; müvekkil arar, o sırada kontrol eder. Bu "reaktif" çalışma modeli ciddi zaman kaybına neden olur, çünkü her UYAP girişi ve çıkışı bağlam değişimi demektir.</p>
+
+        <p>Bunun yerine, tüm sorguları sabah ilk iş olarak toplu halde yapın. Günün sorgulanacak dosyalarını önceden listeleyin ve hepsini tek oturumda tamamlayın. Bu yaklaşımın iki avantajı vardır: birincisi, UYAP sabah saatlerinde genellikle daha hızlıdır; ikincisi, günün geri kalanını sorgulara değil hukuki analize ve müvekkil iletişimine ayırabilirsiniz.</p>
+
+        <div class="callout callout-tip">
+            <div class="callout-title">💡 Pratik</div>
+            Her gün mesai başında 30 dakikayı "sorgu zamanı" olarak ayırın. Bu rutin, gün içinde UYAP'a dağınık girişleri ortadan kaldırır.
+        </div>
+
+        <h2>2. UYAP Sorgularını Otomatikleştirin</h2>
+
+        <p>Manuel varlık sorgusu, dosya başına ortalama 3-5 dakika alır. 20 dosya için bu, günde yaklaşık 1-1.5 saat saf tıklama zamanı demektir. Üstelik bu tamamen mekanik, hukuki bilgi gerektirmeyen bir süreçtir.</p>
+
+        <p>Bu süreç otomasyona en uygun adaydır. Chrome eklentileri gibi araçlar, UYAP Avukat Portal üzerindeki sorgu akışını otomatik olarak gerçekleştirebilir. Avukatın yetkisi dahilindeki sorgular, insan yerine yazılım tarafından tamamlanır — aynı sonuç, çok daha kısa sürede.</p>
+
+        <p>Otomasyon araçlarında dikkat edilmesi gereken temel kriter güvenliktir. Aracın e-imza bilgilerinizi saklamadığından ve yalnızca mevcut UYAP oturumunuz üzerinden çalıştığından emin olun.</p>
+
+        <div class="callout callout-cta">
+            <div class="callout-title">🦔 İcra Kirpisi</div>
+            UYAP varlık sorgularını otomatikleştiren ücretsiz Chrome eklentisi. E-imzanızı saklamaz, mevcut oturumunuzda çalışır.
+            <br><a href="https://chromewebstore.google.com/detail/hmlfjillkeailddacgclnbpjllhodnip?utm_source=item-share-cb">Chrome Web Store'dan İndir →</a>
+        </div>
+
+        <h2>3. Şablon Kütüphanesi Oluşturun</h2>
+
+        <p>İcra pratiğinde birçok dilekçe ve yazı kalıplaşmıştır: haciz talepleri, banka haciz ihbarnameleri, satış talepleri, dosya hesabı talepleri… Bu belgeleri her seferinde sıfırdan yazmak veya eski dosyalardan kopyalamak hem yavaş hem de hata riski taşır.</p>
+
+        <p>Bunun yerine, sık kullandığınız tüm belge türlerini şablon olarak hazırlayın. Her şablonda değişen alanları (borçlu adı, dosya numarası, alacak miktarı gibi) belirgin şekilde işaretleyin. Bir klasör yapısı oluşturun — örneğin "Haciz Talepleri", "İhbarnameler", "Satış" gibi kategorilerle — ve bunu tüm büroya standart olarak uygulayın.</p>
+
+        <p>Bir adım ötesi: Word'ün mail merge özelliği veya basit bir Excel-Word entegrasyonu ile şablon doldurma sürecini yarı otomatik hale getirebilirsiniz. Borçlu bilgilerini Excel'e girin, şablon otomatik dolsun.</p>
+
+        <h2>4. Süre Takibini Dijitalleştirin</h2>
+
+        <p>İcra takibinde süreler kritiktir. Ödeme emrine itiraz süresi, satış günleri, haciz ihbarnamesi cevap süreleri… Bir sürenin kaçırılması dosyanın akıbetini değiştirebilir.</p>
+
+        <p>Fiziksel ajanda veya zihinsel takip yerine dijital takvim uygulaması kullanın. Google Calendar veya Outlook'ta her dosya için süre hatırlatıcıları oluşturun. Kritik sürelerde birden fazla hatırlatıcı koyun — örneğin süre bitiminden 3 gün önce ve 1 gün önce.</p>
+
+        <p>Daha gelişmiş bir çözüm için hukuk bürosu yönetim yazılımlarının süre takip modüllerini değerlendirebilirsiniz. Ancak çoğu küçük büro için Google Calendar bile büyük fark yaratır — önemli olan sistematik olmaktır.</p>
+
+        <div class="callout callout-tip">
+            <div class="callout-title">💡 Takvim Tekniği</div>
+            Her dosya için ayrı renk kodu kullanın. Kırmızı: bugün biten süreler, sarı: bu hafta biten, yeşil: gelecek hafta. Sabah takvimi açtığınızda öncelikleriniz hemen görünür.
+        </div>
+
+        <h2>5. Dosya Durumu Panosu Tutun</h2>
+
+        <p>Çok dosyalı bürolarda en büyük sorun "hangi dosya hangi aşamada?" sorusunun cevabını bilmemektir. Dosya durumunu sorgulamak için fiziksel dosyayı aramak veya UYAP'ta tek tek kontrol etmek, özellikle müvekkil aradığında stres yaratır.</p>
+
+        <p>Basit bir Excel veya Google Sheets tablosu bu sorunu çözer. Sütunlarınız dosya numarası, borçlu adı, alacak miktarı, mevcut aşama (ödeme emri gönderildi / haciz konuldu / satışta / tahsil edildi) ve bir sonraki aksiyon olabilir. Bu tabloyu günlük olarak güncellemek 5-10 dakika alır ama gün boyu saat kazandırır.</p>
+
+        <p>Bu pano aynı zamanda müvekkil raporlaması için de temel oluşturur. Müvekkil aradığında dosyanın durumunu saniyeler içinde söyleyebilmek, hem profesyonellik hem de müvekkil güveni açısından çok değerlidir.</p>
+
+        <h2>Sonuç: Küçük Değişiklikler, Büyük Farklar</h2>
+
+        <p>Bu 5 yöntemin hiçbiri devrimci değildir. Ancak birlikte uygulandığında, günlük icra pratiğinde <strong>haftada 5-10 saat</strong> tasarruf sağlayabilirler. Bu kazanılan zaman, daha fazla dosya almak, mevcut dosyalara daha iyi odaklanmak veya iş-yaşam dengesini iyileştirmek için kullanılabilir.</p>
+
+        <p>En önemli adım başlamaktır. Yarın sabah tek bir değişiklikle başlayın — örneğin sorgu rutininizi sabaha sabitleyin — ve farkı bir hafta içinde göreceksiniz.</p>
+    </div>
+
+    <div class="cta-banner">
+        <div class="cta-banner-inner">
+            <h3>İlk Adımı At: Sorguları Otomatikleştir</h3>
+            <p>İcra Kirpisi ile UYAP varlık sorgularına harcadığın zamanı geri kazan.</p>
+            <a href="https://chromewebstore.google.com/detail/hmlfjillkeailddacgclnbpjllhodnip?utm_source=item-share-cb" class="cta-btn">Chrome'a Ücretsiz Ekle</a>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════ FOOTER (same as index) ═══════ -->
+<footer>
+    <p>© 2026 İcra Kirpisi &nbsp;·&nbsp; <a href="privacy-policy.html">Gizlilik Politikası</a> &nbsp;·&nbsp; <a href="mailto:icrakirpisi@gmail.com">İletişim</a></p>
+</footer>
+
+<script>
+    function showArticle(id) {
+        document.getElementById('blogListing').classList.add('hidden');
+        document.querySelectorAll('.article-view').forEach(el => el.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showListing() {
+        document.getElementById('blogListing').classList.remove('hidden');
+        document.querySelectorAll('.article-view').forEach(el => el.classList.remove('active'));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+</body>
+</html>
